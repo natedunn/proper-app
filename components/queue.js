@@ -9,7 +9,7 @@ export default class Queue extends Component {
     if (items.length)
       return (
         <div className="bg-white">
-          <div className="px-6 py-6 border-b border-gray-400">
+          <div className="py-8 px-8 border-b border-gray-400">
             <span className="text-xl font-bold">Queued Items</span>
           </div>
           <ul className="inline-block w-full">
@@ -22,7 +22,7 @@ export default class Queue extends Component {
               />
             ))}
           </ul>
-          <div className="px-6 py-6 text-right flex justify-end items-center">
+          <div className="py-8 px-8 text-right flex justify-end items-center">
             <Button
               className="inline-flex items-center"
               onClick={() => {

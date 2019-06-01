@@ -5,7 +5,7 @@ export default class QueueItem extends Component {
   render() {
     const { item, index, deleteItem } = this.props;
     return (
-      <li className="px-6 py-6 flex items-center justify-between border-b border-gray-400 bg-white">
+      <li className="py-8 px-8 flex items-center justify-between border-b border-gray-400 bg-white">
         <div className="inline-block mr-3">
           <a
             className="text-purple-700 hover:text-purple-500 border-b border-purple-200 hover:border-purple-500"
