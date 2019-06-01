@@ -1,10 +1,10 @@
 import axios from 'axios';
-import _ from 'lodash';
+// import _ from 'lodash';
 
 export async function getData(term, origin) {
+  if (!term.length) return [];
   // Composer
-  if (origin === 'composer') {
-    console.log(`https://packagist.org/search.json?q=${term}`);
+  if (origin.toLowerCase() === 'composer'.toLowerCase()) {
     const response = axios
       .get(`https://packagist.org/search.json?q=${term}`)
       .then(res => res.data.results)
@@ -27,7 +27,7 @@ export async function getData(term, origin) {
     });
   }
   // NPM
-  if (origin === 'npm') {
+  if (origin.toLowerCase() === 'npm'.toLowerCase()) {
     const response = axios
       .get(`https://api.npms.io/v2/search/suggestions?q=${term}`)
       .then(res => res.data)
@@ -49,4 +49,5 @@ export async function getData(term, origin) {
       return filtered;
     });
   }
+  return [];
 }
