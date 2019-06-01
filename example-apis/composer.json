@@ -1,0 +1,128 @@
+{
+  "results": [
+    {
+      "name": "laravel/valet",
+      "description": "A more enjoyable local development experience for Mac.",
+      "url": "https://packagist.org/packages/laravel/valet",
+      "repository": "https://github.com/laravel/valet",
+      "downloads": 214506,
+      "favers": 1531
+    },
+    {
+      "name": "cpriego/valet-linux",
+      "description": "A more enjoyable local development experience for Linux.",
+      "url": "https://packagist.org/packages/cpriego/valet-linux",
+      "repository": "https://github.com/cpriego/valet-linux",
+      "downloads": 25923,
+      "favers": 732
+    },
+    {
+      "name": "weprovide/valet-plus",
+      "description": "Blazing fast macOS PHP development environment",
+      "url": "https://packagist.org/packages/weprovide/valet-plus",
+      "repository": "https://github.com/weprovide/valet-plus",
+      "downloads": 13654,
+      "favers": 1087
+    },
+    {
+      "name": "cretueusebiu/valet-windows",
+      "description": "A more enjoyable local development experience for Windows.",
+      "url": "https://packagist.org/packages/cretueusebiu/valet-windows",
+      "repository": "https://github.com/cretueusebiu/valet-windows",
+      "downloads": 9922,
+      "favers": 422
+    },
+    {
+      "name": "cpriego/valet-ubuntu",
+      "description": "A more enjoyable local development experience for Linux.",
+      "url": "https://packagist.org/packages/cpriego/valet-ubuntu",
+      "repository": "https://github.com/cpriego/valet-linux",
+      "downloads": 3180,
+      "favers": 703,
+      "abandoned": "cpriego/valet-linux"
+    },
+    {
+      "name": "tightenco/lambo",
+      "description": "Super-powered 'laravel new' with Laravel and Valet.",
+      "url": "https://packagist.org/packages/tightenco/lambo",
+      "repository": "https://github.com/tightenco/lambo",
+      "downloads": 2069,
+      "favers": 338
+    },
+    {
+      "name": "valeryan/valet-wsl",
+      "description": "A more enjoyable local development experience for Windows Subsystem for Linux.",
+      "url": "https://packagist.org/packages/valeryan/valet-wsl",
+      "repository": "https://github.com/valeryan/valet-wsl",
+      "downloads": 483,
+      "favers": 50
+    },
+    {
+      "name": "jmarcher/valet-linux",
+      "description": "A more enjoyable local development experience for Linux.",
+      "url": "https://packagist.org/packages/jmarcher/valet-linux",
+      "repository": "https://github.com/jmarcher/valet-linux",
+      "downloads": 1739,
+      "favers": 53
+    },
+    {
+      "name": "aaemnnosttv/wp-cli-valet-command",
+      "description": "White-glove services for turn-key installs in seconds.",
+      "url": "https://packagist.org/packages/aaemnnosttv/wp-cli-valet-command",
+      "repository": "https://github.com/aaemnnosttv/wp-cli-valet-command",
+      "downloads": 92,
+      "favers": 138
+    },
+    {
+      "name": "vitr/valet4windows",
+      "description": "A more enjoyable local development experience for Windows.",
+      "url": "https://packagist.org/packages/vitr/valet4windows",
+      "repository": "https://github.com/vitr/valet4windows",
+      "downloads": 567,
+      "favers": 62
+    },
+    {
+      "name": "techdivision/valet-plus",
+      "description": "Blazing fast macOS PHP development environment",
+      "url": "https://packagist.org/packages/techdivision/valet-plus",
+      "repository": "https://github.com/techdivision/valet-plus",
+      "downloads": 298,
+      "favers": 7
+    },
+    {
+      "name": "larawhale/valet4win",
+      "description": "A more enjoyable local development experience for Windows.",
+      "url": "https://packagist.org/packages/larawhale/valet4win",
+      "repository": "https://github.com/larawhale/valet4win",
+      "downloads": 20,
+      "favers": 61,
+      "abandoned": "vitr/valet4windows"
+    },
+    {
+      "name": "crys/valet-wsl",
+      "description": "A more enjoyable local development experience for Windows Subsystem for Linux.",
+      "url": "https://packagist.org/packages/crys/valet-wsl",
+      "repository": "https://github.com/huncrys/valet-wsl",
+      "downloads": 53,
+      "favers": 5
+    },
+    {
+      "name": "ekandreas/valet-deploy",
+      "description": "Support package for deploying Valet develop environments for Laravel and WordPress/Bedrock",
+      "url": "https://packagist.org/packages/ekandreas/valet-deploy",
+      "repository": "https://github.com/ekandreas/valet-deploy",
+      "downloads": 81,
+      "favers": 2
+    },
+    {
+      "name": "tagmeo/valet",
+      "description": "Custom driver for Laravel Valet.",
+      "url": "https://packagist.org/packages/tagmeo/valet",
+      "repository": "https://github.com/tagmeo/valet",
+      "downloads": 7,
+      "favers": 0
+    }
+  ],
+  "total": 161,
+  "next": "https://packagist.org/search.json?q=valet&page=2"
+}
