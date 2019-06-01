@@ -187,7 +187,7 @@ export default class Search extends Component {
                                 .toLowerCase()
                                 .includes(inputValue.toLowerCase())
                           )
-                          .slice(0, 10)
+                          .slice(0, 5)
                           .map((item, index) => (
                             <li
                               {...getItemProps({ key: index, index, item })}
