@@ -130,8 +130,6 @@ export default class Search extends Component {
                 <option defaultValue="null">Choose Origin</option>
                 <option value="npm">NPM</option>
                 <option value="composer">Composer</option>
-                {/* <option value="homebrew">Homebrew</option> */}
-                {/* <option value="appStore">App Store</option> */}
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-purple">
                 <svg
@@ -213,12 +211,6 @@ export default class Search extends Component {
               )}
             </Downshift>
           </div>
-          {/* <div>
-            <Label>3. Add item</Label>
-            <Button type="submit" disabled={!term}>
-              Add to Queue
-            </Button>
-          </div> */}
         </form>
         <Queue
           items={queue}
