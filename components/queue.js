@@ -75,15 +75,15 @@ export default class Queue extends Component {
 }
 
 RenderQueue.propTypes = {
-  items: PropTypes.object,
+  items: PropTypes.array,
 };
 ActiveQueue.propTypes = {
-  items: PropTypes.object,
+  items: PropTypes.array,
   deleteItem: PropTypes.func,
   createZip: PropTypes.func,
 };
 Queue.propTypes = {
-  items: PropTypes.object,
+  items: PropTypes.array,
   deleteItem: PropTypes.func,
   createZip: PropTypes.func,
 };
