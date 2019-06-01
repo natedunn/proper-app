@@ -1,3 +1,4 @@
+import React, { Component } from 'react';
 // Components
 import Head from 'component/head';
 import Nav from 'component/nav';
@@ -16,15 +17,17 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
-const Home = props => (
-  <Container>
-    <Head title={pageInfo.title} />
-    <Nav />
-    <h1 className="text-4xl font-light text-center mt-16 mb-6">
-      Work with your machine, not against it
-    </h1>
-    <Search />
-  </Container>
-);
-
-export default Home;
+export default class Home extends Component {
+  render() {
+    return (
+      <Container>
+        <Head title={pageInfo.title} />
+        <Nav />
+        <h1 className="text-4xl font-light text-center mt-16 mb-6">
+          Work with your machine, not against it
+        </h1>
+        <Search />
+      </Container>
+    )
+  }
+}
