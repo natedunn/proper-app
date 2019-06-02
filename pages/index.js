@@ -92,7 +92,7 @@ export default class Home extends Component {
         {
           ...queue[name],
           name,
-          origin: origin.name,
+          origin,
           ver,
         },
       ],

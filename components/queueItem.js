@@ -16,11 +16,11 @@ export default class QueueItem extends Component {
         </div>
         <div className="flex items-center">
           <div className="inline-block px-2 py-1 rounded bg-gray-400 text-xs mr-3">
-            {item.origin}
+            {item.origin.name}
           </div>
-          <div className="inline-block font-bold px-2 py-1 rounded bg-gray-300 text-xs mr-3">
+          {/* <div className="inline-block font-bold px-2 py-1 rounded bg-gray-300 text-xs mr-3">
             {item.ver ? `v ${item.ver}` : null}
-          </div>
+          </div> */}
           <button
             className="bg-red-200 text-red-500 hover:bg-red-500 hover:text-white font-bold py-1 px-2 text-xs rounded flex items-center"
             onClick={() => {
