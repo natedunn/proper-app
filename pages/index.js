@@ -30,6 +30,7 @@ export default class Home extends Component {
       origin: {},
       queue: [],
       results: [],
+      loading: false,
     };
     this.deleteItem = this.deleteItem.bind(this);
   }
@@ -72,13 +73,14 @@ export default class Home extends Component {
   handleSearchChange = event => {
     const { origin } = this.state;
     const { value } = event.target;
-    this.setState({ term: value.trim() });
+    this.setState({ term: value.trim(), loading: true });
     if (!value.trim().length) {
       this.resetResults();
     } else {
       this.resetResults();
       getData(value.trim(), origin.id).then(results => {
-        if (results && results.length) this.setState({ results });
+        if (results && results.length)
+          this.setState({ results, loading: false });
       });
     }
   };
