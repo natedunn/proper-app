@@ -16,7 +16,7 @@ export default class Search extends Component {
       onOriginChange,
     } = this.props;
     return (
-      <div className="flex items-end bg-white px-8 py-8">
+      <div className="flex items-end bg-white px-8 py-8 rounded shadow-lg">
         <div className="inline-block w-40 mr-3">
           <Label>1. Choose Origin</Label>
           <div className="relative">
