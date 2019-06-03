@@ -6,3 +6,7 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+p {
+  @apply leading-loose mb-2;
+}
