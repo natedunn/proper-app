@@ -19,8 +19,11 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     const GlobalStyle = createGlobalStyle`
+      html, body {
+        height: 100%;
+      }
       body {
-        background-color: ${tw.colors.gray[300]};
+        background: #f5f9fc;
       }
     `;
 
