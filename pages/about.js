@@ -30,7 +30,7 @@ const About = props => (
           </h2>
           <p>
             Proper is a simple bash script to help you install and update the
-            dependencies you need for you Mac
+            dependencies you need for you Mac.
           </p>
           <p>
             The script was originally forked from{' '}
@@ -49,7 +49,7 @@ const About = props => (
             supporting her on{' '}
             <Link href="https://www.patreon.com/minamarkham">
               <a className="text-purple-600 tracking-wide hover:text-purple-800 border-b-2 border-purple-200 hover:border-purple-400">
-                Patreon
+                Patreon.
               </a>
             </Link>
           </p>
