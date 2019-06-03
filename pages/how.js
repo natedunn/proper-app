@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Head from 'component/head';
 import Nav from 'component/nav';
+import Footer from 'component/footer';
 import styled from 'styled-components';
 import tw from 'tailwindcss/defaultTheme';
 
@@ -27,6 +28,7 @@ const How = props => (
           <p>Guide and video coming soon! Apologies for the wait.</p>
         </section>
       </div>
+      <Footer />
     </Container>
   </>
 );
