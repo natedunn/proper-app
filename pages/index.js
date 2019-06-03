@@ -1,16 +1,18 @@
 // Deps
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import Link from 'next/link';
 // Components
 import Head from 'component/head';
 import Nav from 'component/nav';
 import Search from 'component/search';
 import Queue from 'component/queue';
+import Footer from 'component/footer';
 // Theme
 import styled from 'styled-components';
 import tw from 'tailwindcss/defaultTheme';
 // Imported
 import { getData } from '../utils/fetch';
-import { makeZipFile } from '../utils/helper';
+import { generateZip } from '../utils/helper';
 
 // ? Does this belong here?
 const pageInfo = {
@@ -19,7 +21,8 @@ const pageInfo = {
 
 const Container = styled.div`
   max-width: ${tw.maxWidth['4xl']};
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export default class Home extends Component {
@@ -36,7 +39,6 @@ export default class Home extends Component {
   }
 
   resetResults = () => {
-    console.log('Reset results?');
     this.setState({
       results: [],
     });
@@ -112,38 +114,43 @@ export default class Home extends Component {
     });
   };
 
-  createZip = manifest => {
-    const { queue } = this.state;
-    const itemNames = [];
-    queue.forEach(function(item) {
-      const { name } = item;
-      itemNames.push(name);
-    });
-    makeZipFile(manifest, itemNames.join('\n'));
-  };
-
   render() {
     const { queue } = this.state;
     return (
-      <Container>
+      <>
         <Head title={pageInfo.title} />
         <Nav />
-        <h1 className="text-4xl font-light text-center mt-16 mb-6">
-          Work with your machine, not against it
-        </h1>
-        <Search
-          {...this.state}
-          addToQueue={this.addToQueue}
-          handleSearchChange={this.handleSearchChange}
-          handleSearchKeyDown={this.handleSearchKeyDown}
-          onOriginChange={this.onOriginChange}
-        />
-        <Queue
-          items={queue}
-          deleteItem={this.deleteItem}
-          createZip={this.createZip}
-        />
-      </Container>
+        <Container>
+          <div className="text-center mt-16 mb-12">
+            <h1 className="text-4xl font-medium mb-2">
+              Work with your machine, not against it.
+            </h1>
+            <div>
+              Get started by creating your script below or directly{' '}
+              <Link href="https://github.com/useproper/proper">
+                <a className="text-purple-600 tracking-wide hover:text-purple-800 border-b-2 border-purple-200 hover:border-purple-400">
+                  forking the repo
+                </a>
+              </Link>
+              .
+            </div>
+          </div>
+
+          <Search
+            {...this.state}
+            addToQueue={this.addToQueue}
+            handleSearchChange={this.handleSearchChange}
+            handleSearchKeyDown={this.handleSearchKeyDown}
+            onOriginChange={this.onOriginChange}
+          />
+          <Queue
+            items={queue}
+            deleteItem={this.deleteItem}
+            generateZip={generateZip}
+          />
+          <Footer />
+        </Container>
+      </>
     );
   }
 }
