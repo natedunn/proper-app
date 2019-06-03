@@ -10,6 +10,9 @@
     "lint:fix": "eslint . --fix"
   },
   "release-it": {
+    "npm": {
+      "publish": false
+    },
     "github": {
       "release": true
     }
