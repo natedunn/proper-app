@@ -1,0 +1,5 @@
+# Create release for Github
+echo "\nReleasing a new version."
+source .env
+export GITHUB_TOKEN
+release-it

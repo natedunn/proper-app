@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "release": "release-it",
+    "release": "sh release",
     "lint:fix": "eslint . --fix"
   },
   "release-it": {
