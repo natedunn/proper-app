@@ -47,7 +47,11 @@ const Nav = () => (
           );
         })}
       </ul>
-      <Link href="https://github.com/minamarkham/formation">
+      <Link
+        href={`https://github.com/useproper/proper-app/releases/tag/${
+          packageJson.version
+        }`}
+      >
         <a className="text-sm text-purple-600 tracking-wide hover:text-purple-800 border-b-2 border-purple-200 hover:border-purple-400">
           v {packageJson.version}
         </a>
