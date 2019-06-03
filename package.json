@@ -8,7 +8,7 @@
     "lint": "eslint .",
     "export": "next export",
     "release": "sh release",
-    "deploy": "npm run build && npm run export && npm run release",
+    "deploy": "npm run build && npm run export && git commit -a -m 'Run fresh build & export' && npm run release",
     "lint:fix": "eslint . --fix"
   },
   "release-it": {
