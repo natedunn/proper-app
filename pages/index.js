@@ -30,7 +30,10 @@ export default class Home extends Component {
     super(props);
     this.state = {
       term: '',
-      origin: {},
+      origin: {
+        id: 'NPM',
+        name: 'NPM',
+      },
       queue: [],
       results: [],
       loading: false,
