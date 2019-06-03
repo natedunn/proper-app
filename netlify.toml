@@ -1,0 +1,5 @@
+[[redirects]]
+from = "https://useproper.netlify.com/*"
+to = "https://www.useproper.dev/:splat"
+status = 301
+force = true
