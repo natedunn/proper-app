@@ -3,7 +3,9 @@ const withPurgeCss = require('next-purgecss');
 const path = require('path');
 const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
 
-module.exports = {
+const withImages = require('next-images');
+
+module.exports = withImages({
   webpack: config => {
     // Fixes npm packages that depend on `fs` module
     config.node = {
@@ -12,7 +14,7 @@ module.exports = {
 
     return config;
   },
-};
+});
 
 class TailwindExtractor {
   static extract(content) {
