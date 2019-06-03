@@ -5,10 +5,10 @@ import Button from 'component/button';
 
 export default class Queue extends Component {
   render() {
-    const { items, deleteItem, createZip } = this.props;
+    const { items, deleteItem, generateZip } = this.props;
     if (items.length)
       return (
-        <div className="bg-white">
+        <div className="bg-white rounded shadow-lg mt-6">
           <div className="py-8 px-8 border-b border-gray-400">
             <span className="text-xl font-bold">Queued Items</span>
           </div>
@@ -26,7 +26,7 @@ export default class Queue extends Component {
             <Button
               className="inline-flex items-center"
               onClick={() => {
-                createZip('brews');
+                generateZip(items);
               }}
               disabled={!items.length}
             >
@@ -49,5 +49,5 @@ export default class Queue extends Component {
 Queue.propTypes = {
   items: PropTypes.array,
   deleteItem: PropTypes.func,
-  createZip: PropTypes.func,
+  generateZip: PropTypes.func,
 };
