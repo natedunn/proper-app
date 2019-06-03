@@ -6,7 +6,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
+    "export": "next export",
     "release": "sh release",
+    "deploy": "npm run build && npm run release && npm run export",
     "lint:fix": "eslint . --fix"
   },
   "release-it": {
