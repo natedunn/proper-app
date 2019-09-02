@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import App, { Container } from 'next/app';
 import { createGlobalStyle } from 'styled-components';
@@ -23,15 +24,15 @@ class MyApp extends App {
         height: 100%;
       }
       body {
-        background: #f5f9fc;
+        background: #f7f9fc;
       }
     `;
 
     return (
-      <Container>
+      <div>
         <GlobalStyle />
         <Component {...pageProps} />
-      </Container>
+      </div>
     );
   }
 }

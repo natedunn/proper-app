@@ -1,12 +1,19 @@
-import Link from 'next/link';
+import Link from 'component/link';
+import tw from 'tailwind.macro';
 
 const Footer = () => (
-  <div className="text-sm mt-6 text-center text-gray-600">
+  <div className="text-sm mt-24 text-center text-gray-600 pt-6 border-t-2 border-gray-300">
     Made by{' '}
-    <Link prefetch href="https://twitter.com/natedunn">
-      <a className="text-purple-600 tracking-wide hover:text-purple-800 border-b-2 border-purple-200 hover:border-purple-400">
-        @natedunn
-      </a>
+    <Link href="https://twitter.com/natedunn" css={tw`text-sm`} external>
+      @natedunn
+    </Link>
+    {` | `}
+    <Link
+      href="https://github.com/useproper/proper-app/releases"
+      css={tw`text-sm`}
+      external
+    >
+      View releases
     </Link>
   </div>
 );

@@ -5,15 +5,8 @@ export default class QueueItem extends Component {
   render() {
     const { item, index, deleteItem } = this.props;
     return (
-      <li className="py-8 px-8 flex items-center justify-between border-b border-gray-400 bg-white">
-        <div className="inline-block mr-3">
-          <a
-            className="text-purple-700 hover:text-purple-500 border-b border-purple-200 hover:border-purple-500"
-            href="/"
-          >
-            {item.name}
-          </a>
-        </div>
+      <li className="py-4 px-8 flex items-center justify-between border-b border-gray-400 bg-white">
+        <div className="inline-block mr-3">{item.name}</div>
         <div className="flex items-center">
           <div className="inline-block px-2 py-1 rounded bg-gray-400 text-xs mr-3">
             {item.origin.name}

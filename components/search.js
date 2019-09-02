@@ -4,8 +4,6 @@ import Label from 'component/label';
 import PropTypes from 'prop-types';
 
 export default class Search extends Component {
-  componentDidMount() {}
-
   render() {
     const {
       term,

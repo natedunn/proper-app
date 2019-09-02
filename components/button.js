@@ -9,15 +9,15 @@ export default class Button extends Component {
       if (color === `purple`)
         return `bg-purple-700 text-white ${
           !disabled ? `hover:bg-purple-600` : null
-          }`;
+        }`;
       if (color === `lightPurple`)
         return `bg-white text-purple-800  ${
           !disabled ? `hover:bg-purple-200` : null
-          }`;
+        }`;
       if (color === `danger`)
         return `bg-red-200 text-red-700  ${
           !disabled ? `hover:bg-red-300` : null
-          }`;
+        }`;
     };
 
     return (
