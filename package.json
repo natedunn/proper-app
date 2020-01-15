@@ -20,21 +20,22 @@
     }
   },
   "dependencies": {
-    "@babel/plugin-syntax-object-rest-spread": "^7.2.0",
+    "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
     "@fullhuman/postcss-purgecss": "^1.2.0",
     "@mdx-js/loader": "^1.4.0",
     "@next/mdx": "^9.0.5",
     "@zeit/next-css": "^1.0.1",
-    "autoprefixer": "^9.6.1",
+    "autoprefixer": "^9.7.4",
     "axios": ">=0.19.0",
     "babel-plugin-inline-react-svg": "^1.1.0",
-    "babel-plugin-macros": "^2.6.1",
+    "babel-plugin-macros": "^2.8.0",
     "babel-plugin-module-resolver": "^3.2.0",
     "cssnano": "^4.1.10",
     "downshift": "^3.2.12",
     "eslint-import-resolver-babel-module": "^5.1.0",
     "file-saver": "^2.0.2",
     "fs": "^0.0.1-security",
+    "fuse.js": "^3.4.6",
     "jszip": "^3.2.2",
     "lodash": "^4.17.15",
     "module-resolver": "^1.0.0",
@@ -48,7 +49,7 @@
     "react-dom": "^16.9.0",
     "styled-components": "^4.3.2",
     "tailwind.macro": "^1.0.0-alpha.10",
-    "tailwindcss": "^1.1.2"
+    "tailwindcss": "^1.1.4"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",

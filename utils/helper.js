@@ -3,17 +3,45 @@ import axios from 'axios';
 
 const JSZip = require('jszip');
 
-function setManifestData(name, data, zip) {
+
+function slugify (str) {
+  str = str.replace(/^\s+|\s+$/g, '');
+
+  // Make the string lowercase
+  str = str.toLowerCase();
+
+  // Remove accents, swap ñ for n, etc
+  var from = "ÁÄÂÀÃÅČÇĆĎÉĚËÈÊẼĔȆÍÌÎÏŇÑÓÖÒÔÕØŘŔŠŤÚŮÜÙÛÝŸŽáäâàãåčçćďéěëèêẽĕȇíìîïňñóöòôõøðřŕšťúůüùûýÿžþÞĐđßÆa·/_,:;";
+  var to = "AAAAAACCCDEEEEEEEEIIIINNOOOOOORRSTUUUUUYYZaaaaaacccdeeeeeeeeiiiinnooooooorrstuuuuuyyzbBDdBAa------";
+  for (var i = 0, l = from.length; i < l; i++) {
+    str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+  }
+
+  // Remove invalid chars
+  str = str.replace(/[^a-z0-9 -]/g, '')
+    // Collapse whitespace and replace by -
+    .replace(/\s+/g, '-')
+    // Collapse dashes
+    .replace(/-+/g, '-');
+
+  return str;
+}
+
+function setManifestData (name, data, zip) {
   if (data.length) {
     const names = [];
     data.forEach(item => {
-      names.push(item.name);
+      if (item.origin.id.toLowerCase() === 'mas') {
+        names.push(`${item.id}::${slugify(item.name)}`);
+      } else {
+        names.push(item.id);
+      }
     });
     zip.file(`proper/manifest/${name}`, names.join('\n'));
   }
 }
 
-export function generateZip(queue) {
+export function generateZip (queue) {
   // New Zip
   const zip = new JSZip();
   // Create folders
@@ -87,7 +115,7 @@ export function generateZip(queue) {
   presets.forEach((preset, index) => {
     axios
       .get(preset.file)
-      .then(function(response) {
+      .then(function (response) {
         // Load presets
 
         zip.file(
@@ -106,16 +134,28 @@ export function generateZip(queue) {
           const composerItems = queue.filter(
             item => item.origin.id.toLowerCase() === 'composer'
           );
+          const masItems = queue.filter(
+            item => item.origin.id.toLowerCase() === 'mas'
+          );
+          const caskItems = queue.filter(
+            item => item.origin.id.toLowerCase() === 'cask'
+          );
+          const brewItems = queue.filter(
+            item => item.origin.id.toLowerCase() === 'homebrew'
+          );
           setManifestData('npm', npmItems, zip);
           setManifestData('composer', composerItems, zip);
+          setManifestData('apps', masItems, zip);
+          setManifestData('casks', caskItems, zip);
+          setManifestData('brews', brewItems, zip);
 
           // Generate!
-          zip.generateAsync({ type: 'blob' }).then(function(content) {
+          zip.generateAsync({ type: 'blob' }).then(function (content) {
             saveAs(content, 'proper.zip');
           });
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   });

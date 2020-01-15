@@ -7,7 +7,7 @@ import packageJson from '../package.json';
 
 const NavItems = [
   {
-    url: '/build',
+    url: '/',
     text: 'Build',
   },
   {
@@ -15,13 +15,13 @@ const NavItems = [
     text: 'About',
   },
   {
-    url: '/docs',
-    text: 'Docs',
+    url: '/how',
+    text: 'How to Use',
   },
 ];
 
 const Nav = () => (
-  <Container className="flex items-center justify-between py-6 border-b-2 border-gray-300">
+  <Container className="flex items-center justify-between py-6">
     <Link href="/" css={tw`font-bold flex items-center`}>
       <Logo className="w-5" />
     </Link>
@@ -29,7 +29,11 @@ const Nav = () => (
       {NavItems.map(function(item, index) {
         return (
           <li key={index} className="inline-block mr-4">
-            <Link href={item.url} css={tw`text-sm`} external>
+            <Link
+              href={item.url}
+              css={tw`text-sm font-bold uppercase tracking-wide`}
+              external
+            >
               {item.text}
             </Link>
           </li>

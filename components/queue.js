@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import QueueItem from 'component/queueItem';
 import Button from 'component/button';
+import { H2 } from 'component/heading';
 
 export default class Queue extends Component {
-  render() {
+  render () {
     const { items, deleteItem, generateZip } = this.props;
     if (items.length)
       return (
-        <div className="bg-white rounded shadow-lg mt-6">
-          <div className="py-8 px-8 border-b border-gray-400">
-            <span className="text-xl font-bold">Queued Items</span>
-          </div>
+        <div className="mt-8 px-8 py-8 rounded border border-purple-300 bg-purple-100">
+          <H2>Queued Items</H2>
           <ul className="inline-block w-full">
             {items.map((item, index) => (
               <QueueItem

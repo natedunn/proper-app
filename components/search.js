@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import tw from 'tailwind.macro';
 import Downshift from 'downshift';
 import Label from 'component/label';
 import PropTypes from 'prop-types';
 
 export default class Search extends Component {
-  render() {
+  render () {
     const {
       term,
       results,
@@ -12,20 +13,24 @@ export default class Search extends Component {
       addToQueue,
       handleSearchChange,
       onOriginChange,
+      className,
     } = this.props;
     return (
-      <div className="flex items-end bg-white px-8 py-8 rounded shadow-lg">
+      <div className={className} css={tw`flex items-end`}>
         <div className="inline-block w-40 mr-3">
-          <Label>1. Choose Origin</Label>
+          <Label css={tw`text-white`}>1. Choose Origin</Label>
           <div className="relative">
             <select
-              className="inline-block w-full appearance-none border-2 border-gray-300 hover:border-purple-700 rounded py-2 px-4 pr-8 leading-tight focus:outline-none focus:shadow-outline cursor-pointer"
+              className="inline-block w-full appearance-none border-2 border-purple-500 text-lg font-medium tracking-wide bg-white rounded py-4 px-4 pr-8 leading-tight focus:outline-none focus:border-purple-700 focus:shadow-outline cursor-pointer"
               onChange={onOriginChange}
             >
-              <option defaultValue="npm" selected>
+              <option defaultValue="npm">
                 NPM
               </option>
               <option value="composer">Composer</option>
+              <option value="mas">Mac App Store</option>
+              <option value="cask">Cask</option>
+              <option value="homebrew">Homebrew</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-purple">
               <svg
@@ -54,27 +59,29 @@ export default class Search extends Component {
               highlightedIndex,
               selectedItem,
             }) => (
-              <div className="relative">
-                <Label {...getLabelProps()}>2. Search</Label>
-                <input
-                  className="w-full appearance-none border-2 border-gray-500 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:border-purple-500"
-                  placeholder={`Search ${origin.name || ''}`}
-                  {...getInputProps({
-                    onChange: handleSearchChange,
-                    disabled: !origin.id,
-                    value: term,
-                  })}
-                />
-                <ul
-                  {...getMenuProps()}
-                  className={
-                    isOpen && results.length
-                      ? `absolute w-full py-4 px-4 bg-white shadow-lg mt-4`
-                      : null
-                  }
-                >
-                  {isOpen && results.length
-                    ? results
+                <div className="relative">
+                  <Label css={tw`text-white`} {...getLabelProps()}>
+                    2. Search
+                </Label>
+                  <input
+                    className="w-full appearance-none border-2 border-purple-500 rounded py-4 px-4 text-lg font-medium tracking-wide text-gray-700 leading-tight focus:outline-none focus:border-purple-700"
+                    placeholder={`Search ${origin.name || ''}`}
+                    {...getInputProps({
+                      onChange: handleSearchChange,
+                      disabled: !origin.id,
+                      value: term,
+                    })}
+                  />
+                  <ul
+                    {...getMenuProps()}
+                    className={
+                      isOpen && results.length
+                        ? `absolute w-full py-4 px-4 bg-white shadow-lg mt-4`
+                        : null
+                    }
+                  >
+                    {isOpen && results.length
+                      ? results
                         .filter(
                           item =>
                             !inputValue ||
@@ -88,7 +95,7 @@ export default class Search extends Component {
                             {...getItemProps({ key: index, index, item })}
                             className={`px-4 py-4 border-b border-gray-300 cursor-pointer rounded ${
                               highlightedIndex === index ? 'bg-gray-300' : null
-                            } ${selectedItem === item ? 'font-bold' : null}`}
+                              } ${selectedItem === item ? 'font-bold' : null}`}
                           >
                             <div className="flex w-full justify-between">
                               {item.name}
@@ -98,10 +105,10 @@ export default class Search extends Component {
                             </div>
                           </li>
                         ))
-                    : null}
-                </ul>
-              </div>
-            )}
+                      : null}
+                  </ul>
+                </div>
+              )}
           </Downshift>
         </div>
       </div>
@@ -110,11 +117,12 @@ export default class Search extends Component {
 }
 
 Search.propTypes = {
+  className: PropTypes.string,
   addToQueue: PropTypes.func,
   handleSearchChange: PropTypes.func,
   onOriginChange: PropTypes.func,
   term: PropTypes.string,
   results: PropTypes.array,
   queue: PropTypes.array,
-  origin: PropTypes.string,
+  origin: PropTypes.object,
 };

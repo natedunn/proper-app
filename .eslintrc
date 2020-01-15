@@ -1,9 +1,10 @@
 {
-  "extends": ["wesbos"],
-  "settings": {
-    "import/resolver": {
-      "babel-module": {}
-    }
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "rules": {
+    "react/react-in-jsx-scope": "off"
   },
-  "plugins": ["import"]
+  "parser": "babel-eslint",
+  "globals": {
+    "React": "writable"
+  }
 }

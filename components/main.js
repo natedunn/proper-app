@@ -1,21 +1,24 @@
 import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
 
-const Header = props => {
+const Main = props => {
   const { className, children } = props;
   return (
-    <div css={tw`py-12 px-12 bg-purple-700 rounded`} className={className}>
+    <div
+      css={tw`bg-white px-12 py-12 border border-gray-300`}
+      className={className}
+    >
       {children}
     </div>
   );
 };
 
-Header.defaultProps = {
+Main.defaultProps = {
   children: 'Header',
 };
-Header.propTypes = {
+Main.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
 };
 
-export default Header;
+export default Main;
