@@ -10,9 +10,9 @@ export default class Queue extends Component {
     const { items, deleteItem, generateZip } = this.props;
     if (items.length)
       return (
-        <div css={tw`mt-8 px-8 py-8 rounded border border-purple-300 bg-purple-100`}>
-          <H2>Queued Items</H2>
-          <ul css={tw`inline-block w-full`}>
+        <div css={tw`mt-10`}>
+          <H2 css={tw`font-bold`}>Queued Items</H2>
+          <ul css={tw`inline-block w-full mt-4`}>
             {items.map((item, index) => (
               <QueueItem
                 key={index}
