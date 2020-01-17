@@ -22,7 +22,7 @@ export default class Queue extends Component {
               />
             ))}
           </ul>
-          <div css={tw`py-8 text-right flex justify-end items-center`}>
+          <div css={tw`py-6 px-8 mt-8 bg-purple-100 border border-purple-200 rounded text-right flex justify-end items-center`}>
             <Button
               css={tw`inline-flex items-center`}
               onClick={() => {
@@ -37,7 +37,7 @@ export default class Queue extends Component {
               >
                 <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
               </svg>
-              <span>Download</span>
+              <span>Generate & Download</span>
             </Button>
           </div>
         </div>

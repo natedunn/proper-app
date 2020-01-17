@@ -12,7 +12,7 @@ export default class QueueItem extends Component {
   render () {
     const { item, index, deleteItem } = this.props;
     return (
-      <li className="py-6 px-8 mb-2 flex items-center justify-between rounded border border-gray-400 bg-white">
+      <li className="py-6 px-8 mt-2 flex items-center justify-between rounded border border-gray-400 bg-white">
         <div className="inline-block mr-3">{item.name}</div>
         <div className="flex items-center">
           <div className="inline-block px-2 py-1 rounded bg-gray-400 text-xs mr-3">
