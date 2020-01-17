@@ -27,7 +27,7 @@ function slugify (str) {
   return str;
 }
 
-function setManifestData (name, data, zip) {
+function createManifestFile (name, data, zip) {
   if (data.length) {
     const names = [];
     data.forEach(item => {
@@ -41,15 +41,14 @@ function setManifestData (name, data, zip) {
   }
 }
 
-export function generateZip (queue) {
-  // New Zip
-  const zip = new JSZip();
-  // Create folders
+async function generateFolders (zip) {
   zip.folder('proper');
   zip.folder('proper/lib');
   zip.folder('proper/manifest');
+}
 
-  // Set Presets
+async function generatePresets (zip) {
+  // Presets
   const presets = [
     {
       name: 'proper',
@@ -111,52 +110,59 @@ export function generateZip (queue) {
     },
   ];
 
-  // Start!
-  presets.forEach((preset, index) => {
-    axios
-      .get(preset.file)
-      .then(function (response) {
-        // Load presets
+  for (const preset of presets) {
+    await axios.get(preset.file).then(res => {
+      // Load presets
+      zip.file(
+        !preset.dir
+          ? `proper/${preset.name}`
+          : `proper/${preset.dir}/${preset.name}`,
+        res.data
+      );
+    })
+  }
+}
 
-        zip.file(
-          !preset.dir
-            ? `proper/${preset.name}`
-            : `proper/${preset.dir}/${preset.name}`,
-          response.data
-        );
+async function generateManifests (queue, zip) {
+  // Get Zip Data
+  const npmItems = queue.filter(
+    item => item.origin.id.toLowerCase() === 'npm'
+  );
+  const composerItems = queue.filter(
+    item => item.origin.id.toLowerCase() === 'composer'
+  );
+  const masItems = queue.filter(
+    item => item.origin.id.toLowerCase() === 'mas'
+  );
+  const caskItems = queue.filter(
+    item => item.origin.id.toLowerCase() === 'cask'
+  );
+  const brewItems = queue.filter(
+    item => item.origin.id.toLowerCase() === 'homebrew'
+  );
+  createManifestFile('npm', npmItems, zip);
+  createManifestFile('composer', composerItems, zip);
+  createManifestFile('apps', masItems, zip);
+  createManifestFile('casks', caskItems, zip);
+  createManifestFile('brews', brewItems, zip);
+}
 
-        // After final preset is loaded...
-        if (index === presets.length - 1) {
-          // Get Zip Data
-          const npmItems = queue.filter(
-            item => item.origin.id.toLowerCase() === 'npm'
-          );
-          const composerItems = queue.filter(
-            item => item.origin.id.toLowerCase() === 'composer'
-          );
-          const masItems = queue.filter(
-            item => item.origin.id.toLowerCase() === 'mas'
-          );
-          const caskItems = queue.filter(
-            item => item.origin.id.toLowerCase() === 'cask'
-          );
-          const brewItems = queue.filter(
-            item => item.origin.id.toLowerCase() === 'homebrew'
-          );
-          setManifestData('npm', npmItems, zip);
-          setManifestData('composer', composerItems, zip);
-          setManifestData('apps', masItems, zip);
-          setManifestData('casks', caskItems, zip);
-          setManifestData('brews', brewItems, zip);
-
-          // Generate!
-          zip.generateAsync({ type: 'blob' }).then(function (content) {
-            saveAs(content, 'proper.zip');
-          });
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+async function compileZip (zip) {
+  zip.generateAsync({ type: 'blob' }).then(function (content) {
+    saveAs(content, 'proper.zip');
   });
+}
+
+export async function generateZip (queue) {
+  // New Zip
+  const zip = new JSZip();
+
+  try {
+    await generateFolders(zip);
+    await generatePresets(zip);
+    await generateManifests(queue, zip);
+    await compileZip(zip);
+  } catch (error) {
+    console.log(error);
+  }
 }
