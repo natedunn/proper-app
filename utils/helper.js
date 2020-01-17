@@ -53,25 +53,25 @@ async function generatePresets (zip) {
     {
       name: 'proper',
       dir: false,
-      file: 'https://raw.githubusercontent.com/natedunn/proper/master/proper',
+      file: 'https://raw.githubusercontent.com/useproper/proper/master/proper',
     },
     {
       name: 'functions',
       dir: false,
       file:
-        'https://raw.githubusercontent.com/natedunn/proper/master/functions',
+        'https://raw.githubusercontent.com/useproper/proper/master/functions',
     },
     {
       name: 'checks',
       dir: 'lib',
       file:
-        'https://raw.githubusercontent.com/natedunn/proper/master/lib/checks',
+        'https://raw.githubusercontent.com/useproper/proper/master/lib/checks',
     },
     {
       name: 'dotfiles',
       dir: 'lib',
       file:
-        'https://raw.githubusercontent.com/natedunn/proper/master/lib/dotfiles',
+        'https://raw.githubusercontent.com/useproper/proper/master/lib/dotfiles',
     },
     {
       name: 'installs',
@@ -83,30 +83,30 @@ async function generatePresets (zip) {
       name: 'process',
       dir: 'lib',
       file:
-        'https://raw.githubusercontent.com/natedunn/proper/master/lib/process',
+        'https://raw.githubusercontent.com/useproper/proper/master/lib/process',
     },
     {
       name: 'prompts',
       dir: 'lib',
       file:
-        'https://raw.githubusercontent.com/natedunn/proper/master/lib/prompts',
+        'https://raw.githubusercontent.com/useproper/proper/master/lib/prompts',
     },
     {
       name: 'text',
       dir: 'lib',
-      file: 'https://raw.githubusercontent.com/natedunn/proper/master/lib/text',
+      file: 'https://raw.githubusercontent.com/useproper/proper/master/lib/text',
     },
     {
       name: 'utilities',
       dir: 'lib',
       file:
-        'https://raw.githubusercontent.com/natedunn/proper/master/lib/utilities',
+        'https://raw.githubusercontent.com/useproper/proper/master/lib/utilities',
     },
     {
       name: 'variables',
       dir: 'lib',
       file:
-        'https://raw.githubusercontent.com/natedunn/proper/master/lib/variables',
+        'https://raw.githubusercontent.com/useproper/proper/master/lib/variables',
     },
   ];
 
